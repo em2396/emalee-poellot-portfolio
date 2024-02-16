@@ -1,0 +1,12 @@
+.paragraph {
+    width: 70vw;
+    height: 80vh;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    font-size: 25px;
+    opacity: .8;
+    font-family: 'Handlee','sans-serif';
+    /* font-weight: bold; */
+    overflow-y: auto;
+}

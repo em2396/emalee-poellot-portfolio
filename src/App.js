@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import { Route, Routes, Link, useLocation } from 'react-router-dom';
+import MyPortfolio from './MyPortfolio/MyPortfolio';
+import AboutMe from './AboutMe/AboutMe';
 import './App.css';
 
 function App() {
+  const location = useLocation();
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='main'>
+        {location.pathname === "/" && (
+          <div className='left-side'>
+            <div>
+              <header>Emalee Poellot</header>
+              <nav>
+                <Link to="/myportfolio">
+                  <button>My Portfolio</button>
+                </Link>
+                <Link to="/aboutme">
+                  <button>About Me</button>
+                </Link>
+              </nav>
+            </div>
+                <img className="portrait" src="/selfportrait.jpg" alt="Self-Portrait" />
+          </div>
+        )}
+      </div>
+      <div>
+        <Routes>
+          <Route path="/myportfolio" element={<MyPortfolio />}>My Portfolio</Route>
+          <Route path="/aboutme" element={<AboutMe />}>About Me</Route>
+        </Routes>
+      </div>
     </div>
   );
 }
